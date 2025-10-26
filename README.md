@@ -37,3 +37,18 @@ ls -a # displays hidden files and folders
 rm -rf .ssh
 ls -a # displays hidden files and folders to check that .ssh has been removed
 ```
+
+Error 2 :
+
+Message :
+
+OpenSSH Private Key exposed on GitHub.
+(This will be sent automaticaaly by email)
+
+Explanation :
+
+??
+
+Fix :
+
+??
