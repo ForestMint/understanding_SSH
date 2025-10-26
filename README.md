@@ -4,6 +4,9 @@ This repository is about tips in using SSH to train myself on the various DevOps
 It mostly consists in getting used to the various 💩 that might happen around managing SSH connections.
 Welcome.
 
+Error 1 :
+
+Message :
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
@@ -18,3 +21,19 @@ Add correct host key in /home/<username>/.ssh/known_hosts to get rid of this mes
 Offending ECDSA key in /home/<username>/.ssh/known_hosts:5
 Host key for <target-server-ip> has changed and you have requested strict checking.
 Host key verification failed.
+
+Explanation :
+
+This is probably because you have in your .ssh folder, on the machine you're trying to connect from, a fingerprint or something related to the target machine.
+If this thing is obsolete, possibly because the machine related to the IP stored in .ssh folder has been destroyed and re-created, then it fails when you're trying to connect to the new machine, which is not the machine the fingerprint belongs to.
+
+Fix :
+
+If you do not have any other important information in the .ssh folder, just remove it.
+
+```bash
+cd ~
+ls -a # displays hidden files and folders
+rm -rf .ssh
+ls -a # displays hidden files and folders to check that .ssh has been removed
+```
